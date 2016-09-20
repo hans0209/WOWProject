@@ -1,0 +1,49 @@
+void insertionsort(vector<int> &input){ 
+2     for(int i = 0 ; i< input.size(); i++){ 
+3         int cur = input[i]; 
+4         int j = i-1; 
+5         for(; j >=0 && input[j]>cur;j--) 
+6             input[j+1] = input[j]; 
+7         input[j+1] = cur; 
+8     } 
+9      
+10 } 
+11 
+ 
+12 void quick(vector<int> & input, int start, int end){ 
+13     if(start >= end) return; 
+14     int wall = start; 
+15     for(int i = start + 1; i <= end; i++){ 
+16         if(input[i] < input[start]){ 
+17             swap(input[i], input[++wall]); 
+18         } 
+19     } 
+20     swap(input[wall], input[start]); 
+21     quick(input, start, wall -1); 
+22     quick(input, wall+1, end); 
+23 } 
+24 
+ 
+25 void quicksort(int arr[], int left, int right){ 
+26 	int i(left); 
+27 	int j(right); 
+28 	int tmp; 
+29 	int pivot = arr[(left+right)/2]; 
+30 	while(i <= j){ 
+31 		while(arr[i]<pivot) i++; 
+32 		while(arr[j]>pivot) j--; 
+33 		if(i <=j){ 
+34 			swap(arr[i],arr[j]); 
+35 			i++; 
+36 			j--; 
+37 		} 
+38 	} 
+39 
+ 
+40 	if(left < j){ 
+41 		quicksort(arr, left, j); 
+42 	} 
+43 	if(i < right){ 
+44 		quicksort(arr, i, right); 
+45 	} 
+46 } 
