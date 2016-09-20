@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main()
+{
+    int num1, num2;
+    int result = 0;
+    
+    printf("insert two number : ");
+    scanf("%d %d", &num1, &num2);
+    
+    result = num1 + num2;
+    
+    printf("result is %d \n", result);
+    
+    system("pause");
+    return 0;
+}
